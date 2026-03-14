@@ -69,7 +69,7 @@ const oakesgrotesk = localFont({
 });
 
 const nohemi = localFont({
-  src: "./assets/fonts/Nohemi/Nohemi-VF.ttf",
+  src: "./assets/fonts/nohemi/Nohemi-VF.ttf",
   variable: "--font-nohemi",
 });
 
