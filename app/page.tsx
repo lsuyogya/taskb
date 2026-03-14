@@ -16,7 +16,7 @@ export default function Home() {
         <section className="flex flex-wrap justify-between gap-14 md:gap-20 items-start">
           {/* Left */}
           <div className="flex flex-col gap-6 md:gap-14.5">
-            <h2 className="text-2xl/snug md:text-4xl/snug text-gray-800 font-medium max-w-[30ch]">
+            <h2 className="text-2xl/snug md:text-4xl/snug text-gray-800 font-medium max-w-[25ch]">
               Experience our expert solutions tailored to enhance your business
               with top-tier design, development, and animation.
             </h2>
