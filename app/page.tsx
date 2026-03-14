@@ -1,65 +1,58 @@
 import Image from "next/image";
+import DragSlider from "./components/DragSlider";
+import RotatingWords from "./components/RotatingWords";
 
 export default function Home() {
+  const partnerImages = [
+    "/partner1.png",
+    "/partner2.png",
+    "/partner3.png",
+    "/partner4.png",
+  ];
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen flex justify-center font-primary">
+      <div className=" container max-w-360 w-full p-12 flex flex-col gap-20 md:gap-[195px]">
+        {/* Top Section */}
+        <section className="flex flex-wrap justify-between gap-14 md:gap-20 items-start">
+          {/* Left */}
+          <div className="flex flex-col gap-6 md:gap-14.5">
+            <h2 className="text-2xl/snug md:text-4xl/snug text-gray-800 font-medium max-w-[30ch]">
+              Experience our expert solutions tailored to enhance your business
+              with top-tier design, development, and animation.
+            </h2>
+
+            <button className="bg-primary hover:bg-[#013ecf] text-light-50 px-[20px] py-[14px] rounded-full text-base max-w-max active:outline-6 active:outline-[rgb(184,204,253)]">
+              Services
+            </button>
+          </div>
+
+          {/* Rotating Wrods */}
+          <RotatingWords />
+        </section>
+
+        {/* Image Section */}
+        <DragSlider />
+
+        {/* Partners */}
+        <section className="text-center">
+          <p className="text-light-900 mb-8 md:mb-12.5 font-bold text-[22px]">
+            Our Partners
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+          <div className="flex flex-wrap justify-around items-center gap-14 text-gray-700 font-semibold">
+            {partnerImages.map((img, index) => (
+              <Image
+                src={img}
+                height={150}
+                width={150}
+                className={`h-14 md:h-18.75 w-auto transition-colors ${index === 0 && "logo-filter"} ${index === 3 && "logo-filter"} `}
+                key={img}
+                alt=""
+              />
+            ))}
+          </div>
+        </section>
+      </div>
+    </main>
   );
 }
